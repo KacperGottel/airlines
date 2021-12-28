@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class Home {
+public class HomeController {
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/a")
     public String home(){
         return "home/home";
     }
