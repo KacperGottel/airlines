@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: kacper
@@ -13,39 +14,25 @@
 <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <div class="card-body">
-                    <table id="datatablesSimple">
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
-                        </tr>
-                        </thead>
-                        <tfoot>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
-                        </tr>
-                        </tfoot>
-                        <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">News</h1>
+                </div>
+
+                <c:forEach items="${feed.messages}" var="m" varStatus="theCount">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h4 class="m-0 font-weight-bold text-primary">${theCount.count}.${m.title}</h4>
+                        </div>
+                        <div class="card-body">
+                                ${m.description}
+                                ${feed.pubDate}
+                        </div>
+                        <button class="btn"><a href="${m.link}" target="_blank" rel="noopener noreferrer"><span class="text-gray-500">Read more</span></a></button>
+                    </div>
+                </c:forEach>
+                <br>
+                <div>
+                    Copyright © &nbsp;${feed.copyright}
                 </div>
             </div>
         </main>
