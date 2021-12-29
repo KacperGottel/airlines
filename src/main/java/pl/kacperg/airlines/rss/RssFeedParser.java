@@ -19,7 +19,7 @@ public class RssFeedParser {
     static final String LINK = "link";
     static final String AUTHOR = "author";
     static final String ITEM = "item";
-    static final String PUB_DATE = "pubDate";
+    static final String PUB_DATE = "lastBuildDate";
     static final String GUID = "guid";
 
     final URL url;
@@ -67,28 +67,28 @@ public class RssFeedParser {
                             event = eventReader.nextEvent();
                             break;
                         case TITLE:
-                            title = getCharacterData(event, eventReader);
+                            title = getCharacterData(eventReader);
                             break;
                         case DESCRIPTION:
-                            description = getCharacterData(event, eventReader);
+                            description = getCharacterData(eventReader);
                             break;
                         case LINK:
-                            link = getCharacterData(event, eventReader);
+                            link = getCharacterData(eventReader);
                             break;
                         case GUID:
-                            guid = getCharacterData(event, eventReader);
+                            guid = getCharacterData(eventReader);
                             break;
                         case LANGUAGE:
-                            language = getCharacterData(event, eventReader);
+                            language = getCharacterData(eventReader);
                             break;
                         case AUTHOR:
-                            author = getCharacterData(event, eventReader);
+                            author = getCharacterData(eventReader);
                             break;
                         case PUB_DATE:
-                            pubdate = getCharacterData(event, eventReader);
+                            pubdate = getCharacterData(eventReader);
                             break;
                         case COPYRIGHT:
-                            copyright = getCharacterData(event, eventReader);
+                            copyright = getCharacterData(eventReader);
                             break;
                     }
                 } else if (event.isEndElement()) {
@@ -111,10 +111,10 @@ public class RssFeedParser {
         return feed;
     }
 
-    private String getCharacterData(XMLEvent event, XMLEventReader eventReader)
+    private String getCharacterData(XMLEventReader eventReader)
             throws XMLStreamException {
         String result = "";
-        event = eventReader.nextEvent();
+        XMLEvent event = eventReader.nextEvent();
         if (event instanceof Characters) {
             result = event.asCharacters().getData();
         }

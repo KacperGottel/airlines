@@ -1,5 +1,6 @@
 package pl.kacperg.airlines.rss;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class Feed {
     final String copyright;
     final String pubDate;
 
-    final List<FeedMessage> entries = new ArrayList<FeedMessage>();
+    final List<FeedMessage> entries = new ArrayList<>();
 
     public Feed(String title, String link, String description, String language,
                 String copyright, String pubDate) {
@@ -58,5 +59,6 @@ public class Feed {
                 + ", language=" + language + ", link=" + link + ", pubDate="
                 + pubDate + ", title=" + title + "]";
     }
+
 
 }
