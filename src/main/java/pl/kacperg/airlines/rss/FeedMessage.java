@@ -9,6 +9,8 @@ public class FeedMessage {
     String author;
     String guid;
 
+
+
     public String getTitle() {
         return title;
     }
