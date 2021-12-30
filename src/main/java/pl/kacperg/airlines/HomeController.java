@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import pl.kacperg.airlines.airlinesapi.FlightsData;
 import pl.kacperg.airlines.rss.Feed;
 
 import pl.kacperg.airlines.rss.FeedMessage;
@@ -17,9 +19,12 @@ import java.util.List;
 @Slf4j
 public class HomeController {
 
+    private final FlightsData flightsData;
+
     private final FeedService feedService;
 
-    public HomeController(FeedService feedService) {
+    public HomeController(FlightsData flightsData, FeedService feedService) {
+        this.flightsData = flightsData;
         this.feedService = feedService;
     }
 
@@ -36,10 +41,8 @@ public class HomeController {
         model.addAttribute("feedList", feedlist);
         model.addAttribute("feed", feed);
         model.addAttribute("feedPubDate", feedPubDate);
-//        END NEWS RSS
-
-
-
+//        Avionstack Api Flights
+        model.addAttribute("flights", flightsData.getAllFlights());
         return "home/home";
     }
 
