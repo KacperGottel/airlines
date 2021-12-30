@@ -12,8 +12,8 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h5 mb-0 text-gray-800">News</h1><small>"${feed.title}"</small><small>${feedPubDate}</small>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 news">
+                <h1 class="h5 ">News</h1><small>"${feed.title}"</small><small>${feedPubDate}</small>
             </div>
             <%--                WIDGET--%>
             <a class="weatherwidget-io" href="https://forecast7.com/en/51d9219d15/poland/" data-label_1="POLAND"
@@ -48,44 +48,49 @@
                 ${feed.copyright} ©
             </div>
         </div>
-<%--        TABLE--%>
+        <%--        TABLE--%>
 
         <div class="card-body">
-            <table id="datatablesSimple">
+            <table id="datatablesSimple" class="display" style="width:100%">
                 <thead>
                 <tr>
                     <th>Date</th>
                     <th>Departure</th>
                     <th>Arrival</th>
                     <th>Number</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>Details</th>
+                    <th>Ticket</th>
                 </tr>
                 </thead>
                 <tfoot>
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>Date</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Number</th>
+                    <th>Details</th>
+                    <th>Ticket</th>
                 </tr>
                 </tfoot>
                 <tbody>
+                <c:forEach items="${flights.data}" var="data">
                 <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
+                    <td>${data.flightDate}</td>
+                    <td>${data.departure.airport}</td>
+                    <td>${data.arrival.airport}</td>
+                    <td>${data.flight.number}</td>
+                    <td><a href="flight/${data.flight.number}">view 📃</a></td>
+                    <td><a href="/user/${currentuser.id}/book/${data.flight.number}">Book ✈️ticket</a></td>
                 </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>
-
-<%--        END--%>
+        <script>   $(document).ready(function () {
+            $('#datatablesSimple').DataTable();
+        });
+        </script>
+        <%--        END--%>
     </main>
 
     <%--  FOOTER  --%>
