@@ -10,11 +10,11 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <div><strong>flight:</strong><br> Nr:${empty value? datum.flight.number : '---'},
+            <div><strong>Flight:</strong><br> Nr:${empty value? datum.flight.number : '---'},
                 ICAO:${empty value?datum.flight.icao : '--'}, IATA:${empty value?datum.flight.iata : '---'}</div>
             <br>
 
-            <div><strong>arrival:</strong><br> IATA:${empty value? datum.arrival.iata : '---'},
+            <div><strong>Arrival:</strong><br> IATA:${empty value? datum.arrival.iata : '---'},
                 ICAO:${empty value? datum.arrival.icao : '---'},
                 AIRPORT:${empty value?datum.arrival.airport : '---'},
                 TERMINAL:${empty value? datum.arrival.terminal : '---'},
@@ -23,7 +23,7 @@
                 SCHEDULED:${empty value?datum.arrival.scheduled : '---'}</div>
             <br>
 
-            <div><strong>departure:</strong><br> IATA:${empty value? datum.departure.iata : '---'},
+            <div><strong>Departure:</strong><br> IATA:${empty value? datum.departure.iata : '---'},
                 ICAO:${empty value? datum.departure.icao: '---'},
                 AIRPORT:${empty value? datum.departure.airport: '---'},
                 TERMINAL:${empty value? datum.departure.terminal: '---'},
@@ -32,24 +32,24 @@
                 SCHEDULED:${empty value?datum.departure.scheduled: '---'}</div>
             <br>
 
-            <div><strong>flightDate:</strong><br> DATE:${empty value? datum.flightDate : '---'}</div>
+            <div><strong>FlightDate:</strong><br> DATE:${empty value? datum.flightDate : '---'}</div>
             <br>
 
-            <div><strong>aircraft:</strong><br> ICAO24:${empty value?datum.aircraft.icao24 : '---'},
+            <div><strong>Aircraft:</strong><br> ICAO24:${empty value?datum.aircraft.icao24 : '---'},
                 REGISTRATION:${empty value?datum.aircraft.registration : '---'},
                 IATA:${empty value?datum.aircraft.iata : '---'} </div>
             <br>
 
-            <div><strong>flightStatus:</strong><br> ${empty value? datum.flightStatus : '---'}</div>
+            <div><strong>FlightStatus:</strong><br> ${empty value? datum.flightStatus : '---'}</div>
             <br>
 
-            <div><strong>live:</strong><br> UPDATED:${empty value? datum.live.updated : '---'}, SPEED
+            <div><strong>Live:</strong><br> UPDATED:${empty value? datum.live.updated : '---'}, SPEED
                 VERT:${empty value?datum.live.speedVertical : '---'}, SPEED
                 HORIZ:${empty value? datum.live.speedHorizontal : '---'},
                 ${empty value? datum.live.latitude : '---'}, ${empty value? datum.live.longitude : '---'}</div>
             <br>
 
-            <div><strong>airline:</strong><br> ${empty value? datum.airline.name : '---'}</div>
+            <div><strong>Airline:</strong><br> ${empty value? datum.airline.name : '---'}</div>
             <br>
         </div>
 
