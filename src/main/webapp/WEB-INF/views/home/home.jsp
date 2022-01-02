@@ -48,6 +48,80 @@
                 ${feed.copyright} ©
             </div>
         </div>
+
+        <%--    FORM    --%>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card-header"><h3 class="text-center font-weight-light my-4">Find a flight</h3></div>
+                        <div class="card-body">
+                            <form method="post" action="">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-3 mb-md-0">
+                                            <select name="departureIcao" class="form-control">
+                                                <option value="">Departure</option>
+                                                <c:forEach items="${departuresList}" var="dep">
+                                                    <option value="${dep.icao}">${dep.airport}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-3 mb-md-0">
+                                            <select name="arrivalIcao" class="form-control">
+                                                <option value="">Arrival</option>
+                                                <c:forEach items="${arrivalsList}" var="arr">
+                                                    <option value="${arr.icao}">${arr.airport}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="date" type="date" name="date"/>
+                                    <label for="date">Date</label>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-3 mb-md-0">
+                                            <select name="number" class="form-control">
+                                                <option value="">Flight Number</option>
+                                                <c:forEach items="${numbers}" var="n">
+                                                    <option value="${n}">${n}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating mb-3 mb-md-0">
+                                            <select name="airline" class="form-control">
+                                                <option value="">Airline</option>
+                                                <c:forEach items="${airlinesList}" var="airline">
+                                                    <option value="${airline.name}">${airline.name}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-4 mb-0">
+                                    <div class="d-grid">
+                                        <div class="form-floating mb-3 mb-md-0">
+                                            <input class="form-control btn btn-primary btn-block" type="submit"
+                                                   value="Search"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%--    FORM END    --%>
+
         <%--        TABLE--%>
 
         <div class="card-body">
@@ -74,14 +148,14 @@
                 </tfoot>
                 <tbody>
                 <c:forEach items="${flights.data}" var="data">
-                <tr>
-                    <td>${data.flightDate}</td>
-                    <td>${data.departure.airport}</td>
-                    <td>${data.arrival.airport}</td>
-                    <td>${data.flight.number}</td>
-                    <td><a href="flight/${data.flight.number}">view 📃</a></td>
-                    <td><a href="/user/${currentuser.id}/book/${data.flight.number}">Book ✈️ticket</a></td>
-                </tr>
+                    <tr>
+                        <td>${data.flightDate}</td>
+                        <td>${data.departure.airport}</td>
+                        <td>${data.arrival.airport}</td>
+                        <td>${data.flight.number}</td>
+                        <td><a href="flight/${data.flight.number}">view 📃</a></td>
+                        <td><a href="/user/${currentuser.id}/book/${data.flight.number}">Book ✈️ticket</a></td>
+                    </tr>
                 </c:forEach>
                 </tbody>
             </table>
@@ -90,8 +164,9 @@
             $('#datatablesSimple').DataTable();
         });
         </script>
-        <%--        END--%>
     </main>
+        <%--        END--%>
+
 
     <%--  FOOTER  --%>
     <%@ include file="/fragment/footer.jsp" %>
