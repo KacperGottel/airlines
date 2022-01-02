@@ -3,12 +3,8 @@ package pl.kacperg.airlines;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.kacperg.airlines.airlinesapi.Airline;
-import pl.kacperg.airlines.airlinesapi.Arrival;
-import pl.kacperg.airlines.airlinesapi.Departure;
-import pl.kacperg.airlines.airlinesapi.Example;
+import pl.kacperg.airlines.airlinesapi.*;
 import pl.kacperg.airlines.airlinesapi.flights.FlightService;
 import pl.kacperg.airlines.rss.Feed;
 
@@ -34,7 +30,7 @@ public class HomeController {
         this.feedService = feedService;
     }
 
-    @RequestMapping(value = "")
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Model model) {
 //        NEWS RSS
         RssFeedParser parser = new RssFeedParser("https://www.polsatnews.pl/rss/wszystkie.xml");
@@ -60,18 +56,21 @@ public class HomeController {
 //        Form AirlinesList
         Set<Airline> airlinesList = flightService.getAirlinesList(allFlights);
         model.addAttribute("airlinesList", airlinesList);
+//        Form NumberList
+        Set<String> numbers = flightService.getFlightNumbers(allFlights);
+        model.addAttribute("numbers", numbers);
         return "home/home";
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    @ResponseBody
-    public String homePost(@RequestParam("departureName") String departureName,
-                       @RequestParam("arrivalName") String arrivalName,
-                       @RequestParam("date") String date,
-                       @RequestParam("number") String number,
-                       @RequestParam("airportName") String airportName){
-        log.info("PARAMS : " + departureName + "," + arrivalName + "," + date + "," + number + "," + airportName);
-        return "PARAMS : " + departureName + "," + arrivalName + "," + date + "," + number + "," + airportName;
+    public String homePost(Model model,
+                           @RequestParam("departureIcao") String departureIcao,
+                           @RequestParam("arrivalIcao") String arrivalIcao,
+                           @RequestParam("date") String date,
+                           @RequestParam("number") String number,
+                           @RequestParam("airline") String airline) {
+        model.addAttribute("flights", flightService.searchFlight(departureIcao, arrivalIcao, date, number, airline));
+        return "flight/search";
     }
 
 }

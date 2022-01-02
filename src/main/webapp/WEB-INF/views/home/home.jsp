@@ -60,22 +60,22 @@
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3 mb-md-0">
-                                                <select name="departureName" class="form-control">
-                                                    <option value="NONE">Departure</option>
-                                                    <c:forEach items="${departuresList}" var="dep">
-                                                        <option value="${dep.airport}">${dep.airport}</option>
-                                                    </c:forEach>
-                                                </select>
+                                            <select name="departureIcao" class="form-control">
+                                                <option value="">Departure</option>
+                                                <c:forEach items="${departuresList}" var="dep">
+                                                    <option value="${dep.icao}">${dep.airport}</option>
+                                                </c:forEach>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3 mb-md-0">
-                                                <select name="arrivalName" class="form-control">
-                                                    <option value="NONE">Arrival</option>
-                                                    <c:forEach items="${arrivalsList}" var="arr">
-                                                        <option value="${arr.airport}">${arr.airport}</option>
-                                                    </c:forEach>
-                                                </select>
+                                            <select name="arrivalIcao" class="form-control">
+                                                <option value="">Arrival</option>
+                                                <c:forEach items="${arrivalsList}" var="arr">
+                                                    <option value="${arr.icao}">${arr.airport}</option>
+                                                </c:forEach>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -86,29 +86,34 @@
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3 mb-md-0">
-                                            <input class="form-control" id="number" type="number" step="1"
-                                                   placeholder="Number" name="number"/>
-                                            <label for="number">Number</label>
+                                            <select name="number" class="form-control">
+                                                <option value="">Flight Number</option>
+                                                <c:forEach items="${numbers}" var="n">
+                                                    <option value="${n}">${n}</option>
+                                                </c:forEach>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3 mb-md-0">
-                                                <select name="airportName" class="form-control">
-                                                    <option value="NONE">Airline</option>
-                                                    <c:forEach items="${airlinesList}" var="airline">
-                                                        <option value="${airline.name}">${airline.name}</option>
-                                                    </c:forEach>
-                                                </select>
+                                            <select name="airline" class="form-control">
+                                                <option value="">Airline</option>
+                                                <c:forEach items="${airlinesList}" var="airline">
+                                                    <option value="${airline.name}">${airline.name}</option>
+                                                </c:forEach>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mt-4 mb-0">
                                     <div class="d-grid">
                                         <div class="form-floating mb-3 mb-md-0">
-                                            <input class="form-control btn btn-primary btn-block" type="submit" value="Search"/>
+                                            <input class="form-control btn btn-primary btn-block" type="submit"
+                                                   value="Search"/>
                                         </div>
                                     </div>
                                 </div>
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             </form>
                         </div>
                     </div>
@@ -159,8 +164,9 @@
             $('#datatablesSimple').DataTable();
         });
         </script>
-        <%--        END--%>
     </main>
+        <%--        END--%>
+
 
     <%--  FOOTER  --%>
     <%@ include file="/fragment/footer.jsp" %>
