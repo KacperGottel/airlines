@@ -4,8 +4,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.kacperg.airlines.airlinesapi.*;
 import pl.kacperg.airlines.airlinesapi.flights.FlightService;
+import pl.kacperg.airlines.airlinesapi.models.Airline;
+import pl.kacperg.airlines.airlinesapi.models.Arrival;
+import pl.kacperg.airlines.airlinesapi.models.Departure;
+import pl.kacperg.airlines.airlinesapi.models.Example;
+import pl.kacperg.airlines.exchange.ExchangeService;
 import pl.kacperg.airlines.rss.Feed;
 
 import pl.kacperg.airlines.rss.FeedMessage;
@@ -23,11 +27,12 @@ public class HomeController {
 
     private final FlightService flightService;
     private final FeedService feedService;
+    private final ExchangeService exchangeService;
 
-
-    public HomeController(FlightService flightService, FeedService feedService) {
+    public HomeController(FlightService flightService, FeedService feedService, ExchangeService exchangeService) {
         this.flightService = flightService;
         this.feedService = feedService;
+        this.exchangeService = exchangeService;
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
@@ -62,7 +67,7 @@ public class HomeController {
         return "home/home";
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @PostMapping(value = "")
     public String homePost(Model model,
                            @RequestParam("departureIcao") String departureIcao,
                            @RequestParam("arrivalIcao") String arrivalIcao,
@@ -71,6 +76,13 @@ public class HomeController {
                            @RequestParam("airline") String airline) {
         model.addAttribute("flights", flightService.searchFlight(departureIcao, arrivalIcao, date, number, airline));
         return "flight/search";
+    }
+
+    @PostMapping(value = "/exchange")
+    public String exchange(Model model, @RequestParam("currency") String currency, @RequestParam("amount") Double amount) {
+        model.addAttribute("result", exchangeService.exchange(currency, amount));
+        log.info("result" + exchangeService.exchange(currency, amount));
+        return "home/home";
     }
 
 }

@@ -3,8 +3,8 @@ package pl.kacperg.airlines.airlinesapi;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.concurrent.atomic.AtomicReference;
+import pl.kacperg.airlines.airlinesapi.models.Datum;
+import pl.kacperg.airlines.airlinesapi.models.Example;
 
 class AviationstackServiceTest {
 

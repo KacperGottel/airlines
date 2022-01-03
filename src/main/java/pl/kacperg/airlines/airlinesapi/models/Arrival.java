@@ -1,7 +1,6 @@
 
-package pl.kacperg.airlines.airlinesapi;
+package pl.kacperg.airlines.airlinesapi.models;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Generated;

@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import pl.kacperg.airlines.airlinesapi.*;
+import pl.kacperg.airlines.airlinesapi.models.*;
 
 import java.util.List;
 import java.util.Objects;

@@ -1,5 +1,5 @@
 
-package pl.kacperg.airlines.airlinesapi;
+package pl.kacperg.airlines.airlinesapi.models;
 
 import java.util.HashMap;
 import java.util.Map;

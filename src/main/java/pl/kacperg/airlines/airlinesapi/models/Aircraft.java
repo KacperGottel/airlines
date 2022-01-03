@@ -1,5 +1,5 @@
 
-package pl.kacperg.airlines.airlinesapi;
+package pl.kacperg.airlines.airlinesapi.models;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,33 +13,33 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "number",
+    "registration",
     "iata",
     "icao",
-    "codeshared"
+    "icao24"
 })
 @Generated("jsonschema2pojo")
-public class Flight {
+public class Aircraft {
 
-    @JsonProperty("number")
-    private String number;
+    @JsonProperty("registration")
+    private String registration;
     @JsonProperty("iata")
     private String iata;
     @JsonProperty("icao")
     private String icao;
-    @JsonProperty("codeshared")
-    private Object codeshared;
+    @JsonProperty("icao24")
+    private String icao24;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("number")
-    public String getNumber() {
-        return number;
+    @JsonProperty("registration")
+    public String getRegistration() {
+        return registration;
     }
 
-    @JsonProperty("number")
-    public void setNumber(String number) {
-        this.number = number;
+    @JsonProperty("registration")
+    public void setRegistration(String registration) {
+        this.registration = registration;
     }
 
     @JsonProperty("iata")
@@ -62,14 +62,14 @@ public class Flight {
         this.icao = icao;
     }
 
-    @JsonProperty("codeshared")
-    public Object getCodeshared() {
-        return codeshared;
+    @JsonProperty("icao24")
+    public String getIcao24() {
+        return icao24;
     }
 
-    @JsonProperty("codeshared")
-    public void setCodeshared(Object codeshared) {
-        this.codeshared = codeshared;
+    @JsonProperty("icao24")
+    public void setIcao24(String icao24) {
+        this.icao24 = icao24;
     }
 
     @JsonAnyGetter
@@ -85,10 +85,10 @@ public class Flight {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Flight.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("number");
+        sb.append(Aircraft.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("registration");
         sb.append('=');
-        sb.append(((this.number == null)?"<null>":this.number));
+        sb.append(((this.registration == null)?"<null>":this.registration));
         sb.append(',');
         sb.append("iata");
         sb.append('=');
@@ -98,9 +98,9 @@ public class Flight {
         sb.append('=');
         sb.append(((this.icao == null)?"<null>":this.icao));
         sb.append(',');
-        sb.append("codeshared");
+        sb.append("icao24");
         sb.append('=');
-        sb.append(((this.codeshared == null)?"<null>":this.codeshared));
+        sb.append(((this.icao24 == null)?"<null>":this.icao24));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');

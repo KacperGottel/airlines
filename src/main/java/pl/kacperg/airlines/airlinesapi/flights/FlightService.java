@@ -1,6 +1,6 @@
 package pl.kacperg.airlines.airlinesapi.flights;
 
-import pl.kacperg.airlines.airlinesapi.*;
+import pl.kacperg.airlines.airlinesapi.models.*;
 
 import java.util.List;
 import java.util.Set;

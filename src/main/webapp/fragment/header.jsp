@@ -16,7 +16,7 @@
     <meta name="author" content=""/>
     <title>Static Navigation - SB Admin</title>
     <link href="/resources/css/styles.css" rel="stylesheet"/>
-    <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
             crossorigin="anonymous"></script>
 
@@ -26,7 +26,8 @@
     <!-- Navbar Brand-->
     <a class="navbar-brand ps-3" href="${pageContext.request.contextPath}/">Flight tickets</a>
     <!-- Sidebar Toggle-->
-    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+            class="fas fa-bars"></i></button>
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
         <div class="input-group">
@@ -76,22 +77,29 @@
                          data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                         </nav>
-                        <div class="sb-sidenav-menu-nested nav">
+                        <div class="sb-sidenav-menu-nested nav" style="width: 75%">
                             <label>
-                            <form>
-                                <select name="currency"></select><br>
-                                <input name="number" type="number" step="0.1" placeholder="Amount to convert..."><br>
-                                <input type="submit" value="convert"><br>
-                            </form>
+                                <form method="post" action="${pageContext.request.contextPath}/exchange"
+                                      class="form-control" style="background: #2c3034">
+                                    <input name="amount" type="number" step="0.01" placeholder="PLN"
+                                           style="width: 70%"><br>
+                                    <select name="currency">
+                                        <option value="usd">USD</option>
+                                        <option value="eur">EURO</option>
+                                        <option value="gbp">GBP</option>
+                                    </select><br>
+                                    <input type="submit" value="Convert" class="btn-dark"><br>
+                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                </form>
                             </label>
-                            0zł
+                            <div>${result}PLN</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
-               USER NAME
+                USER NAME
             </div>
         </nav>
     </div>
