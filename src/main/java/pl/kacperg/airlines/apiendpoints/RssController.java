@@ -1,4 +1,4 @@
-package pl.kacperg.airlines.API;
+package pl.kacperg.airlines.apiendpoints;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,5 +1,5 @@
 
-package pl.kacperg.airlines.airlinesapi;
+package pl.kacperg.airlines.airlinesapi.models;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,33 +13,30 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "registration",
+    "name",
     "iata",
-    "icao",
-    "icao24"
+    "icao"
 })
 @Generated("jsonschema2pojo")
-public class Aircraft {
+public class Airline {
 
-    @JsonProperty("registration")
-    private String registration;
+    @JsonProperty("name")
+    private String name;
     @JsonProperty("iata")
     private String iata;
     @JsonProperty("icao")
     private String icao;
-    @JsonProperty("icao24")
-    private String icao24;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("registration")
-    public String getRegistration() {
-        return registration;
+    @JsonProperty("name")
+    public String getName() {
+        return name;
     }
 
-    @JsonProperty("registration")
-    public void setRegistration(String registration) {
-        this.registration = registration;
+    @JsonProperty("name")
+    public void setName(String name) {
+        this.name = name;
     }
 
     @JsonProperty("iata")
@@ -62,16 +59,6 @@ public class Aircraft {
         this.icao = icao;
     }
 
-    @JsonProperty("icao24")
-    public String getIcao24() {
-        return icao24;
-    }
-
-    @JsonProperty("icao24")
-    public void setIcao24(String icao24) {
-        this.icao24 = icao24;
-    }
-
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
@@ -85,10 +72,10 @@ public class Aircraft {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Aircraft.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("registration");
+        sb.append(Airline.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("name");
         sb.append('=');
-        sb.append(((this.registration == null)?"<null>":this.registration));
+        sb.append(((this.name == null)?"<null>":this.name));
         sb.append(',');
         sb.append("iata");
         sb.append('=');
@@ -97,10 +84,6 @@ public class Aircraft {
         sb.append("icao");
         sb.append('=');
         sb.append(((this.icao == null)?"<null>":this.icao));
-        sb.append(',');
-        sb.append("icao24");
-        sb.append('=');
-        sb.append(((this.icao24 == null)?"<null>":this.icao24));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');

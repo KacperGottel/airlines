@@ -1,5 +1,5 @@
 
-package pl.kacperg.airlines.airlinesapi;
+package pl.kacperg.airlines.airlinesapi.models;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,30 +13,33 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "name",
+    "number",
     "iata",
-    "icao"
+    "icao",
+    "codeshared"
 })
 @Generated("jsonschema2pojo")
-public class Airline {
+public class Flight {
 
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("number")
+    private String number;
     @JsonProperty("iata")
     private String iata;
     @JsonProperty("icao")
     private String icao;
+    @JsonProperty("codeshared")
+    private Object codeshared;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("name")
-    public String getName() {
-        return name;
+    @JsonProperty("number")
+    public String getNumber() {
+        return number;
     }
 
-    @JsonProperty("name")
-    public void setName(String name) {
-        this.name = name;
+    @JsonProperty("number")
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     @JsonProperty("iata")
@@ -59,6 +62,16 @@ public class Airline {
         this.icao = icao;
     }
 
+    @JsonProperty("codeshared")
+    public Object getCodeshared() {
+        return codeshared;
+    }
+
+    @JsonProperty("codeshared")
+    public void setCodeshared(Object codeshared) {
+        this.codeshared = codeshared;
+    }
+
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
@@ -72,10 +85,10 @@ public class Airline {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Airline.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("name");
+        sb.append(Flight.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("number");
         sb.append('=');
-        sb.append(((this.name == null)?"<null>":this.name));
+        sb.append(((this.number == null)?"<null>":this.number));
         sb.append(',');
         sb.append("iata");
         sb.append('=');
@@ -84,6 +97,10 @@ public class Airline {
         sb.append("icao");
         sb.append('=');
         sb.append(((this.icao == null)?"<null>":this.icao));
+        sb.append(',');
+        sb.append("codeshared");
+        sb.append('=');
+        sb.append(((this.codeshared == null)?"<null>":this.codeshared));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');

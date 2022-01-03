@@ -1,5 +1,5 @@
 
-package pl.kacperg.airlines.airlinesapi;
+package pl.kacperg.airlines.airlinesapi.models;
 
 import com.fasterxml.jackson.annotation.*;
 
