@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 import pl.kacperg.airlines.airlinesapi.flights.FlightService;
 import pl.kacperg.airlines.airlinesapi.models.Airline;
 import pl.kacperg.airlines.airlinesapi.models.Arrival;
@@ -79,10 +81,8 @@ public class HomeController {
     }
 
     @PostMapping(value = "/exchange")
-    public String exchange(Model model, @RequestParam("currency") String currency, @RequestParam("amount") Double amount) {
-        model.addAttribute("result", exchangeService.exchange(currency, amount));
-        log.info("result" + exchangeService.exchange(currency, amount));
-        return "home/home";
+    public RedirectView exchange(RedirectAttributes attributes, @RequestParam("currency") String currency, @RequestParam("amount") Double amount) {
+        attributes.addFlashAttribute("result", exchangeService.exchange(currency, amount));
+        return new RedirectView("/");
     }
-
 }
