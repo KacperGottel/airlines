@@ -20,14 +20,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeRequests()
-//                .antMatchers("/EEuser/**").hasAnyRole("USER","ADMIN")
-//                .antMatchers("/EEadmin/**").hasAnyRole("ADMIN")
-//                .and()
-//                .formLogin()
-//                .loginPage("/login")
-//                .successForwardUrl("/user/panel")
-//                .and()
-//                .exceptionHandling().accessDeniedPage("/403");
+        http.authorizeRequests()
+                .antMatchers("/user").hasAnyRole("USER","ADMIN")
+                .and()
+                .formLogin()
+                .loginPage("/login").permitAll()
+                .successForwardUrl("/")
+                .and()
+                .exceptionHandling().accessDeniedPage("/404");
     }
 }

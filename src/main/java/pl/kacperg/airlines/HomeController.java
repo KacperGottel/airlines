@@ -1,6 +1,7 @@
 package pl.kacperg.airlines;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import pl.kacperg.airlines.rss.Feed;
 import pl.kacperg.airlines.rss.FeedMessage;
 import pl.kacperg.airlines.rss.FeedService;
 import pl.kacperg.airlines.rss.RssFeedParser;
+import pl.kacperg.airlines.user.CurrentUser;
 
 import java.util.List;
 import java.util.Set;
@@ -84,5 +86,9 @@ public class HomeController {
     public RedirectView exchange(RedirectAttributes attributes, @RequestParam("currency") String currency, @RequestParam("amount") Double amount) {
         attributes.addFlashAttribute("result", exchangeService.exchange(currency, amount));
         return new RedirectView("/");
+    }
+    @ModelAttribute
+    public void addAttributes(@AuthenticationPrincipal CurrentUser currentUser, Model model) {
+        model.addAttribute("currentuser", currentUser);
     }
 }
