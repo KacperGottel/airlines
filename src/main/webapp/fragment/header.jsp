@@ -1,3 +1,4 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: kacper
@@ -42,7 +43,12 @@
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Logout</a></li>
+                <li><sec:authorize access="isAuthenticated()">
+                    <form action="<c:url value="/logout"/>" method="post" class="dropdown-item">
+                        <input type="submit" value="Logout">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    </form>
+                </sec:authorize></li>
             </ul>
         </li>
     </ul>
@@ -62,8 +68,8 @@
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                          data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/user/${user.id}">Settings</a>
-                            <a class="nav-link" href="/user/${user.id}/tickets">Tickets</a>
+                            <a class="nav-link" href="/user/${currentuser.user.id}">Settings</a>
+                            <a class="nav-link" href="/user/${currentuser.user.id}/tickets">Tickets</a>
                         </nav>
                     </div>
 
@@ -99,7 +105,9 @@
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
-                ${currentuser.username}
+                <sec:authorize access="isAuthenticated()">
+                    <p><sec:authentication property="principal.username"/></p>
+                </sec:authorize>
             </div>
         </nav>
     </div>

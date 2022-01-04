@@ -42,7 +42,7 @@
                             <td>${data.arrival.airport}</td>
                             <td>${data.flight.number}</td>
                             <td><a href="flight/${data.flight.number}">view 📃</a></td>
-                            <td><a href="/user/${currentuser.id}/book/${data.flight.number}">Book ✈️ticket</a></td>
+                            <td><a href="/user/${currentuser.user.id}/book/${data.flight.number}">Book ✈️ticket</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -54,7 +54,6 @@
             </script>
         </div>
     </main>
-</div>
 <%--MAIN END--%>
 
 <%--  FOOTER  --%>
