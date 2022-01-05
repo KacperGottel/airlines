@@ -29,14 +29,14 @@ Register and Sign in. Get a view of news from rss with links to article, flight 
 
 <h3>Views</h3>
 Access: logged<br>
-![Screenshot from 2022-01-05 11-44-30](https://user-images.githubusercontent.com/90089220/148206503-bad7d56c-f4d0-4e3c-8d9d-f1ffb56c7e2c.png)<br>
-<small>After login, users can read news, convert money...</small><br>
-![Screenshot from 2022-01-05 11-45-13](https://user-images.githubusercontent.com/90089220/148207552-8f0fd8f4-6c3c-4801-a41f-7b3f1ec31342.png)<br>
-<small>search for flights, read flights list...</small><br>
-![Screenshot from 2022-01-05 11-45-25](https://user-images.githubusercontent.com/90089220/148207669-20a07f59-f559-48f8-a1ac-246828d7bd8d.png)<br>
-<small>read flight details and geoposition on map...</small><br>
-![Screenshot from 2022-01-05 11-51-34](https://user-images.githubusercontent.com/90089220/148207846-f04701f3-90ba-4317-80ee-4b8095d8f2a4.png)<br>
-<small>update personals</small><br><br>
+![Screenshot from 2022-01-05 11-44-30](https://user-images.githubusercontent.com/90089220/148206503-bad7d56c-f4d0-4e3c-8d9d-f1ffb56c7e2c.png)
+<br><small>After login, users can read news, convert money...</small><br>
+![Screenshot from 2022-01-05 11-45-13](https://user-images.githubusercontent.com/90089220/148207552-8f0fd8f4-6c3c-4801-a41f-7b3f1ec31342.png)
+<br><small>search for flights, read flights list...</small><br>
+![Screenshot from 2022-01-05 11-45-25](https://user-images.githubusercontent.com/90089220/148207669-20a07f59-f559-48f8-a1ac-246828d7bd8d.png)
+<br><small>read flight details and geoposition on map...</small><br>
+![Screenshot from 2022-01-05 11-51-34](https://user-images.githubusercontent.com/90089220/148207846-f04701f3-90ba-4317-80ee-4b8095d8f2a4.png)
+<br><small>update personals</small><br><br>
 
 
 
