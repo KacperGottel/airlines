@@ -3,7 +3,7 @@ My second project in Java/Spring Boot, which responds to my curiosity about crea
 
 
 <h3>Installation</h3>
-airlines is written with Spring Boot with front in https://startbootstrap.com/ theme. To run:
+airlines is written with Spring Boot with front in bootstrap template. To run:
 
 compile it with maven and execute jar file
 add your username and password for database in application.properties<br>
