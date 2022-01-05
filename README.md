@@ -3,7 +3,7 @@ My second project in Java/Spring Boot, which responds to my curiosity about crea
 
 
 <h3>Installation</h3>
-airlines is written with Spring Boot. To run:
+airlines is written with Spring Boot with front in https://startbootstrap.com/ theme. To run:
 
 compile it with maven and execute jar file
 add your username and password for database in application.properties<br>
@@ -17,10 +17,9 @@ Polsat News rss<br>
 NBP api<br>
 Aviationstack api<br>
 Spring DataJpa SpringSecurity<br>
-JSP views<br>
 Hibernate<br>
 MySql<br>
-HTML JavaScript CSS<br>
+views: JSP, HTML JavaScript CSS<br>
 
 <h3>Usage</h3>
 Register and Sign in. Get a view of news from rss with links to article, flight search engine by flights number, departure, arrival, date, airlines , flights list paginated with links to details of flight (all data from Aviationstack api) and booking a ticket(in progress). Sidebar menu gives access to users settings : personals update, list of flight tickets and currency converter with the current exchange rate from NBP api. I'm still developing application, that is why there will appear api endpoints. 
