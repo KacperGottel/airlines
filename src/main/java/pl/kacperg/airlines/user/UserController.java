@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.kacperg.airlines.user.tickets.TicketRepository;
+import pl.kacperg.airlines.user.userDto.UserDto;
+import pl.kacperg.airlines.user.userDto.UserServiceDto;
 
 import javax.validation.Valid;
 
@@ -16,11 +19,13 @@ public class UserController {
     private final UserService userService;
     private final UserRepository userRepository;
     private final UserServiceDto userServiceDto;
+    private final TicketRepository ticketRepository;
 
-    public UserController(UserService userService, UserRepository userRepository, UserServiceDto userServiceDto) {
+    public UserController(UserService userService, UserRepository userRepository, UserServiceDto userServiceDto, TicketRepository ticketRepository) {
         this.userService = userService;
         this.userRepository = userRepository;
         this.userServiceDto = userServiceDto;
+        this.ticketRepository = ticketRepository;
     }
 
 
@@ -74,14 +79,19 @@ public class UserController {
             model.addAttribute("user", userDtoNew);
             return "home/settings";
         }
-        User userbyId = userRepository.getById(id);
-        userbyId.setUsername(userDto.getUsername());
-        userbyId.setPassword(userDto.getPassword());
-        userbyId.setEmail(userDto.getEmail());
-        userbyId.setFirstName(userDto.getFirstName());
-        userbyId.setLastName(userDto.getLastName());
-        userService.saveUser(userbyId);
+        User userById = userRepository.getById(id);
+        userById.setUsername(userDto.getUsername());
+        userById.setPassword(userDto.getPassword());
+        userById.setEmail(userDto.getEmail());
+        userById.setFirstName(userDto.getFirstName());
+        userById.setLastName(userDto.getLastName());
+        userService.saveUser(userById);
         return "redirect:/";
+    }
+    @RequestMapping(value = "/user/{id}/tickets")
+    public String userTickets(@PathVariable Long id, Model model){
+        model.addAttribute("tickets", ticketRepository.findAllByUser_Id(id));
+        return "home/tickets";
     }
 
 

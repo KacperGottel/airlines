@@ -2,7 +2,8 @@ package pl.kacperg.airlines.user;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
+import pl.kacperg.airlines.user.role.Role;
+import pl.kacperg.airlines.user.role.RoleRepository;
 
 
 @Service
