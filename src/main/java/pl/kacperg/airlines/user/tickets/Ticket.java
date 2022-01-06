@@ -1,11 +1,11 @@
-package pl.kacperg.airlines.user;
+package pl.kacperg.airlines.user.tickets;
 
 import lombok.Data;
+import pl.kacperg.airlines.user.User;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Ticket")
 @Data
 public class Ticket {
 

@@ -1,6 +1,8 @@
 package pl.kacperg.airlines.user;
 
 import lombok.Data;
+import pl.kacperg.airlines.user.role.Role;
+import pl.kacperg.airlines.user.tickets.Ticket;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

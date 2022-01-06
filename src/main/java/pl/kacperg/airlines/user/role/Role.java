@@ -1,4 +1,4 @@
-package pl.kacperg.airlines.user;
+package pl.kacperg.airlines.user.role;
 
 import lombok.Data;
 
