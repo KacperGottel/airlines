@@ -36,10 +36,11 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerPost(@Valid UserDto userDto, BindingResult bindingResult, Model model, @RequestParam("confirm") String confirm) {
+    public String registerPost(@ModelAttribute("user") @Valid UserDto userDto, BindingResult bindingResult, Model model, @RequestParam("confirm") String confirm) {
+
         if (bindingResult.hasErrors()) {
-            model.addAttribute("error", bindingResult.getModel());
-            model.addAttribute("user", new UserDto());
+//            model.addAttribute("errors", bindingResult);
+//            model.addAttribute("user", new UserDto());
             return "home/register";
         }
         if (userDto.getPassword().equals(confirm)) {
@@ -53,7 +54,7 @@ public class UserController {
             userService.saveUser(user);
         } else {
             model.addAttribute("user", new UserDto());
-            model.addAttribute("confirmerror", "Confirmation Error");
+            model.addAttribute("confirmerror", "Incorrect password confirm");
             return "home/register";
         }
 
