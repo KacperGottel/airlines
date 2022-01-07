@@ -1,6 +1,7 @@
 package pl.kacperg.airlines.user;
 
 import lombok.Data;
+import lombok.ToString;
 import pl.kacperg.airlines.user.role.Role;
 import pl.kacperg.airlines.user.tickets.Ticket;
 
@@ -12,6 +13,7 @@ import java.util.List;
 
 @Entity
 @Data
+@ToString
 public class User {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -28,6 +30,7 @@ public class User {
     private boolean enabled;
     @Min(15)
     private Integer age;
+    private String covidCertificate;
     @OneToMany(mappedBy="user")
     private List<Ticket> tickets;
     @ManyToOne
