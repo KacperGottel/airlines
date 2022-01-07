@@ -32,7 +32,7 @@
                                                             class="form-control form-control-user" id="exampleFirstName"
                                                             placeholder="Username"/>
                                                 <label for="exampleFirstName">Username</label>
-                                                <div style="color: red"><form:errors path="username"/></div>
+                                                <div style="color: red"><form:errors path="username"/> </div>
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +88,6 @@
                                                 <form:input path="lastName" type="text"
                                                             class="form-control form-control-user" id="inputEmail"
                                                             placeholder="Last name"/>
-                                                <form:errors path="lastName"/>
                                                 <label for="inputEmail">Last Name</label>
                                                 <div style="color: red"><form:errors path="lastName"/></div>
 
