@@ -35,13 +35,15 @@
                                     </div>
 
                                     <div class="form-check mb-3">
-                                        <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                        <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
+                                        <div class="icheck-primary">
+                                        <input class="form-check-input" name="remember-me" id="remember" type="checkbox"/>
+                                        <label class="form-check-label" for="remember">Remember Me!</label>
+                                        </div>
                                     </div>
                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                        <a class="small" href="password.html">Forgot Password?</a>
+                                        <a class="small" href="#">Forgot Password?</a>
                                         <input class="btn btn-primary" type="submit" value="Login"/>
                                     </div>
                                 </form>
