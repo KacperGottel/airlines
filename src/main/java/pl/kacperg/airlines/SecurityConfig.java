@@ -18,13 +18,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").hasAnyRole("USER","ADMIN")
+                .antMatchers("/login", "/register").permitAll()
+                .antMatchers("/").hasAnyRole("USER", "ADMIN")
                 .and()
-                .formLogin()
-                .loginPage("/login").permitAll().defaultSuccessUrl("/")
-                .and().logout().logoutSuccessUrl("/")
-                .and().exceptionHandling().accessDeniedPage("/401");
+                .formLogin().loginPage("/login").permitAll().defaultSuccessUrl("/")
+                .and().rememberMe().userDetailsService(this.customUserDetailsService())
+                .and().logout().logoutSuccessUrl("/");
+
     }
+
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

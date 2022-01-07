@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class AviationstackService implements FlightService {
 
-    private static final String API_KEY = "af31d5e9cb738313f8b1c9dd614cdeb8";
+    private static final String API_KEY = "9be8f7a5c7ecd61dda16f5b0f57f26fc";
     private static final String URL = "http://api.aviationstack.com/v1/flights?access_key=" + API_KEY;
 
     @Override

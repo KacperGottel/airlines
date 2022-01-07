@@ -1,9 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 
 <%--HEADER--%>
 <%@ include file="/fragment/header.jsp" %>
@@ -123,7 +120,6 @@
         <%--    FORM END    --%>
 
         <%--        TABLE--%>
-
         <div class="card-body">
             <table id="datatablesSimple" class="display" style="width:100%">
                 <thead>
@@ -132,6 +128,7 @@
                     <th>Departure</th>
                     <th>Arrival</th>
                     <th>Number</th>
+                    <th>Airlines</th>
                     <th>Details</th>
                     <th>Ticket</th>
                 </tr>
@@ -142,6 +139,7 @@
                     <th>Departure</th>
                     <th>Arrival</th>
                     <th>Number</th>
+                    <th>Airlines</th>
                     <th>Details</th>
                     <th>Ticket</th>
                 </tr>
@@ -153,8 +151,10 @@
                         <td>${data.departure.airport}</td>
                         <td>${data.arrival.airport}</td>
                         <td>${data.flight.number}</td>
+                        <td>${data.airline.name}</td>
+
                         <td><a href="flight/${data.flight.number}">view 📃</a></td>
-                        <td><a href="/user/${currentuser.user.id}/book/${data.flight.number}">Book ✈️ticket</a></td>
+                        <td><a href="/user/${currentuser.user.id}/book/${data.flight.number}">Book a ticket ✈</a></td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -165,7 +165,7 @@
         });
         </script>
     </main>
-        <%--        END--%>
+    <%--        END--%>
 
 
     <%--  FOOTER  --%>
