@@ -34,7 +34,7 @@
                 <a href="/user/${currentuser.user.id}/show" class="btn btn-outline-dark block">Show ticket XML</a>
             </div>
             <div>
-                <a href="/user/${currentuser.user.id}/download" class="btn btn-outline-light block">Download</a>
+                <a href="/user/${currentuser.user.id}/download" class="btn btn-outline-warning block">Download</a>
             </div>
         </div>
     </main>

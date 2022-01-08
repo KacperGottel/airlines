@@ -1,14 +1,16 @@
 package pl.kacperg.airlines.apiendpoints;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.ResourceHttpMessageConverter;
+import org.springframework.web.bind.annotation.*;
 import pl.kacperg.airlines.user.User;
 import pl.kacperg.airlines.user.UserRepository;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -33,10 +35,19 @@ public class DownloadController {
         List<String> lines = Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);
         lines.forEach(stringBuilder::append);
         Certificate certificate = new Certificate();
-        certificate.setUserPersonals(user.getFirstName() + "," + user.getLastName() + "," + user.getEmail());
+        certificate.setUserPersonals("USER:" + user.getFirstName() + "," + user.getLastName() + "," + user.getEmail());
         certificate.setUserCovidCertificate(stringBuilder.toString());
         return certificate;
     }
-//    @GetMapping(value = "/user/{userId}/download")
-//    DOWNLOAD FILE
+
+    @GetMapping(value = "/user/{userId}/download", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    @ResponseBody
+    public FileSystemResource getFile(@PathVariable Long userId) throws IOException {
+        User user = userRepository.getById(userId);
+        File file = new File(user.getCovidCertificate());
+        try (FileWriter fileWriter = new FileWriter(file,true)) {
+            fileWriter.append("USER:" + user.getFirstName() + "," + user.getLastName() + "," + user.getEmail());
+        }
+        return new FileSystemResource(file);
+    }
 }
