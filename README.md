@@ -7,7 +7,8 @@ airlines is written with Spring Boot with front in bootstrap template. To run:
 
 compile it with maven and execute jar file
 add your username and password for database in application.properties<br>
-add api_key generated at https://aviationstack.com/ in AviationstackService class
+add api_key generated at <a href="https://aviationstack.com/">aviationstack</a> in AviationstackService class<br>
+add your gmail and password. Follow this <a href="https://support.google.com/accounts/answer/185833">link</a> to see the details and to generate your Google App Password.
 
 
 <h3>Technologies</h3>
