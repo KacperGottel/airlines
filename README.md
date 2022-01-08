@@ -53,8 +53,8 @@ Access: logged<br>
 <h3>Api</h3>
 <details>  
 <summary>show</summary> 
-<p>Flight<br>
 <strong>Method</strong>			<strong>URL</strong>			        <strong>Action(JSON)</strong><br><br>
+<p>Flight<br>
 GET        /api/flight			              Read All (limited 100)<br>
 GET        /api/flight/{number}			      Read by flight number with details<br>
 <p>Rss news<br>
@@ -69,7 +69,7 @@ GET        /user/{id}/show	  		        Read user's certificate<br>
 GET        /api/user/{id}        	  		  Read user with details<br>
 POST       /api/user           	  		    Create user<br>
 PUT        /api/user/{id}                 Update user personals<br>
-POST       /forgot/                       Sending email with password if exist in db/ add header: email address<br>
+POST       /forgot                        Sending email with password if exist in db/ add header: email address<br>
 </details> 
 <br>
 <br>
