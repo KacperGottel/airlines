@@ -53,25 +53,87 @@ Access: logged<br>
 <h3>Api</h3>
 <details>  
 <summary>show</summary> 
-<strong>Method</strong>			<strong>URL</strong>			        <strong>Action(JSON)</strong><br><br>
-<p>Flight<br>
-GET        /api/flight			              Read All (limited 100)<br>
-GET        /api/flight/{number}			      Read by flight number with details<br>
-<p>Rss news<br>
-GET        /api/rss			                  Read news (limited 50)<br>
-<p>Ticket<br>
-GET        /api/user/{id}/ticket			    Read All tickets<br>
-GET        /api/ticket/{id}			          Read ticket by id<br>
-<p>Certificate<br>
-GET        /user/{id}/download	  		    Download file<br>
-GET        /user/{id}/show	  		        Read user's certificate<br>
-<p>User<br>
-GET        /api/user/{id}        	  		  Read user with details<br>
-POST       /api/user           	  		    Create user<br>
-PUT        /api/user/{id}                 Update user personals<br>
-POST       /forgot                        Sending email with password if exist in db/ add header: email address<br>
+<table style="width: 447px;">
+<tbody>
+<tr>
+<td style="width: 72px;"><strong>OBJECT</strong></td>
+<td style="width: 102.312px;"><strong>HTTP Method</strong></td>
+<td style="width: 91.6875px;"><strong>URL</strong></td>
+<td style="width: 175px;"><strong>ACTION</strong></td>
+</tr>
+<tr>
+<td style="width: 72px;">Flight</td>
+<td style="width: 102.312px;">GET</td>
+<td style="width: 91.6875px;"><em>/api/flight</em></td>
+<td style="width: 175px;">Read All (limited 100)</td>
+</tr>
+<tr>
+<td style="width: 72px;">Flight</td>
+<td style="width: 102.312px;">GET</td>
+<td style="width: 91.6875px;"><em>/api/flight/{number}</em></td>
+<td style="width: 175px;">Read by flight number with details</td>
+</tr>
+<tr>
+<td style="width: 72px;">Rss news</td>
+<td style="width: 102.312px;">GET</td>
+<td style="width: 91.6875px;"><em>/api/rss</em></td>
+<td style="width: 175px;">Read news (limited 50)</td>
+</tr>
+<tr>
+<td style="width: 72px;">Ticket</td>
+<td style="width: 102.312px;">GET</td>
+<td style="width: 91.6875px;"><em>/api/user/{id}/ticket</em></td>
+<td style="width: 175px;">Read All tickets</td>
+</tr>
+<tr>
+<td style="width: 72px;">Ticket</td>
+<td style="width: 102.312px;">GET</td>
+<td style="width: 91.6875px;"><em>/api/ticket/{id}</em></td>
+<td style="width: 175px;">Read ticket by id</td>
+</tr>
+<tr>
+<td style="width: 72px;">Certificate</td>
+<td style="width: 102.312px;">GET</td>
+<td style="width: 91.6875px;"><em>/user/{id}/download</em></td>
+<td style="width: 175px;">Download file</td>
+</tr>
+<tr>
+<td style="width: 72px;">Certificate</td>
+<td style="width: 102.312px;">GET</td>
+<td style="width: 91.6875px;"><em>/user/{id}/show</em></td>
+<td style="width: 175px;">Read user's certificate</td>
+</tr>
+<tr>
+<td style="width: 72px;">User</td>
+<td style="width: 102.312px;">GET</td>
+<td style="width: 91.6875px;"><em>/api/user/{id}</em></td>
+<td style="width: 175px;">Read user with details</td>
+</tr>
+<tr>
+<td style="width: 72px;">User</td>
+<td style="width: 102.312px;">POST</td>
+<td style="width: 91.6875px;"><em>/api/user</em></td>
+<td style="width: 175px;">Create user</td>
+</tr>
+<tr>
+<td style="width: 72px;">User</td>
+<td style="width: 102.312px;">PUT</td>
+<td style="width: 91.6875px;"><em>/api/user/{id}</em></td>
+<td style="width: 175px;">Update user personals</td>
+</tr>
+<tr>
+<td style="width: 72px;">User</td>
+<td style="width: 102.312px;">POST</td>
+<td style="width: 91.6875px;"><em>/forgot</em></td>
+<td style="width: 175px;">Sending email with password if exist in db</td>
+</tr>
+</tbody>
+</table>
 </details> 
 <br>
 <br>
 <h5>Please add suggestions or contact me if you like my project ✌️ </h5>
+
+
+
 
