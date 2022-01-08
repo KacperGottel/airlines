@@ -55,18 +55,18 @@ Access: logged<br>
 <summary>show</summary> 
 <p>Flight<br>
 <strong>Method</strong>			<strong>URL</strong>			        <strong>Action(JSON)</strong><br><br>
-GET        /api/flight			              Find All (limited 100)<br>
-GET        /api/flight/{number}			      Find by flight number with details<br>
+GET        /api/flight			              Read All (limited 100)<br>
+GET        /api/flight/{number}			      Read by flight number with details<br>
 <p>Rss news<br>
-GET        /api/rss			                  Find news (limited 50)<br>
+GET        /api/rss			                  Read news (limited 50)<br>
 <p>Ticket<br>
-GET        /api/user/{id}/ticket			    Find All tickets<br>
-GET        /api/user/{id}/ticket/{id}			Find ticket by id<br>
+GET        /api/user/{id}/ticket			    Read All tickets<br>
+GET        /api/ticket/{id}			          Read ticket by id<br>
 <p>Certificate<br>
 GET        /user/{id}/download	  		    Download file<br>
-GET        /user/{id}/show	  		        Find user's certificate<br>
+GET        /user/{id}/show	  		        Read user's certificate<br>
 <p>User<br>
-GET        /api/user/{id}        	  		  Find user with details<br>
+GET        /api/user/{id}        	  		  Read user with details<br>
 POST       /api/user           	  		    Create user<br>
 PUT        /api/user/{id}                 Update user personals<br>
 POST       /forgot/                       Sending email with password if exist in db/ add header: email address<br>
