@@ -13,7 +13,7 @@
         <div class="container-xxl">
             <h2>Submitted File</h2>
             <table>
-                <tr>
+                <tr class="border-1">
                     <td>File Name:</td>
                     <td>${file.originalFilename}</td>
                 </tr>
@@ -25,17 +25,14 @@
                     <td>Size:</td>
                     <td>${file.size}bytes</td>
                 </tr>
+                <tr>
+                    <td><a href="/user/${currentuser.user.id}/show" class="btn btn-outline-dark block border-5">Show file</a>
+                        <a href="/user/${currentuser.user.id}/download"
+                           class="btn btn-outline-warning block border-5">Download</a>
+                        <a href="/" class="btn btn-outline-info block border-5">Go back!</a>
+                    </td>
+                </tr>
             </table>
-            <br>
-            <div>
-                <a href="/" class="btn btn-outline-info block">Homepage</a>
-            </div>
-            <div>
-                <a href="/user/${currentuser.user.id}/show" class="btn btn-outline-dark block">Show ticket XML</a>
-            </div>
-            <div>
-                <a href="/user/${currentuser.user.id}/download" class="btn btn-outline-warning block">Download</a>
-            </div>
         </div>
     </main>
 

@@ -43,7 +43,7 @@
                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                        <a class="small" href="#">Forgot Password?</a>
+                                        <a class="small" href="/forgot">Forgot Password?</a>
                                         <input class="btn btn-primary" type="submit" value="Login"/>
                                     </div>
                                 </form>
