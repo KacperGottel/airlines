@@ -3,13 +3,12 @@ package pl.kacperg.airlines.apiendpoints;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.ResourceHttpMessageConverter;
 import org.springframework.web.bind.annotation.*;
 import pl.kacperg.airlines.user.User;
 import pl.kacperg.airlines.user.UserRepository;
+import pl.kacperg.airlines.user.tickets.Certificate;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

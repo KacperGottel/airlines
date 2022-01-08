@@ -1,4 +1,4 @@
-package pl.kacperg.airlines.apiendpoints;
+package pl.kacperg.airlines.user.tickets;
 
 import lombok.Data;
 import lombok.ToString;
