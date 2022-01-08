@@ -9,7 +9,7 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <div class="d-sm-flex align-items-center justify-content-between mb-4 news">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4 news shadow m-3">
                 <h1 class="h5 ">News</h1><small>"${feed.title}"</small><small>${feedPubDate}</small>
             </div>
             <%--                WIDGET--%>
@@ -27,7 +27,7 @@
                 }(document, 'script', 'weatherwidget-io-js');
             </script>
             <%--                WIDGET--%>
-
+            <div class="border-bottom" style="border-bottom: #6c757d">&nbsp;</div>
             <c:forEach items="${feedList}" var="m">
                 <div class="card shadow mb-4" style="display: table-cell">
                     <div class="card-header py-3">

@@ -1,7 +1,6 @@
 package pl.kacperg.airlines.user;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,13 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import pl.kacperg.airlines.airlinesapi.flights.FlightService;
 import pl.kacperg.airlines.airlinesapi.models.Datum;
+import pl.kacperg.airlines.email.EmailService;
 import pl.kacperg.airlines.upload.FileService;
 import pl.kacperg.airlines.user.tickets.TicketRepository;
 import pl.kacperg.airlines.user.userDto.UserDto;
 import pl.kacperg.airlines.user.userDto.UserServiceDto;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.*;
 
@@ -30,15 +28,17 @@ public class UserController {
     private final UserServiceDto userServiceDto;
     private final TicketRepository ticketRepository;
     private final FlightService flightService;
+    private final EmailService emailService;
 
     public UserController(FileService fileService, UserService userService, UserRepository userRepository,
-                          UserServiceDto userServiceDto, TicketRepository ticketRepository, FlightService flightService) {
+                          UserServiceDto userServiceDto, TicketRepository ticketRepository, FlightService flightService, EmailService emailService) {
         this.fileService = fileService;
         this.userService = userService;
         this.userRepository = userRepository;
         this.userServiceDto = userServiceDto;
         this.ticketRepository = ticketRepository;
         this.flightService = flightService;
+        this.emailService = emailService;
     }
 
 
@@ -66,6 +66,7 @@ public class UserController {
             user.setLastName(userDto.getLastName());
             user.setAge(userDto.getAge());
             userService.saveUser(user);
+            emailService.sendSimpleMessage(userDto.getEmail(),"Confirmation", "http://localhost:8080/user/"+userDto.getUsername()+"/confirmation");
         } else {
             model.addAttribute("user", new UserDto());
             model.addAttribute("confirmerror", "Incorrect password confirm");
@@ -74,10 +75,34 @@ public class UserController {
 
         return "redirect:/";
     }
+    @RequestMapping(value = "/user/{username}/confirmation")
+    public String confrimMail(@PathVariable String username){
+        User usr = userRepository.findByUsername(username);
+        usr.setEnabled(true);
+        userRepository.save(usr);
+        return "redirect:/";
+    }
+
 
     @ModelAttribute
     public void addAttributes(@AuthenticationPrincipal CurrentUser currentUser, Model model) {
         model.addAttribute("currentuser", currentUser);
+    }
+
+    @RequestMapping("/forgot")
+    public String forgotPassForm() {
+        return "home/forgot";
+    }
+    @PostMapping("/forgot")
+    public String forgotPassPost(@RequestParam String email, Model model) {
+        User user = userRepository.findByEmail(email);
+        if (user != null){
+            emailService.sendSimpleMessage(email,"Password reminder", user.getPassword());
+            model.addAttribute("msg", "password send to email");
+        } else {
+            model.addAttribute("msg", "email address is not exist");
+        }
+        return "home/forgot";
     }
 
     @RequestMapping("/user/{id}")
