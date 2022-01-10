@@ -9,7 +9,7 @@ import pl.kacperg.airlines.user.UserRepository;
 import pl.kacperg.airlines.user.UserService;
 import pl.kacperg.airlines.user.tickets.Ticket;
 import pl.kacperg.airlines.user.tickets.TicketRepository;
-import pl.kacperg.airlines.user.userDto.UserDto;
+import pl.kacperg.airlines.user.user_dto.UserDto;
 
 import java.util.List;
 

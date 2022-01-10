@@ -1,4 +1,4 @@
-package pl.kacperg.airlines.user.userDto;
+package pl.kacperg.airlines.user.user_dto;
 
 import org.springframework.stereotype.Service;
 import pl.kacperg.airlines.user.User;

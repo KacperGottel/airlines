@@ -12,8 +12,8 @@ import pl.kacperg.airlines.airlinesapi.models.Datum;
 import pl.kacperg.airlines.email.EmailService;
 import pl.kacperg.airlines.upload.FileService;
 import pl.kacperg.airlines.user.tickets.TicketRepository;
-import pl.kacperg.airlines.user.userDto.UserDto;
-import pl.kacperg.airlines.user.userDto.UserServiceDto;
+import pl.kacperg.airlines.user.user_dto.UserDto;
+import pl.kacperg.airlines.user.user_dto.UserServiceDto;
 
 import javax.validation.Valid;
 import java.io.*;

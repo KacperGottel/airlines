@@ -1,9 +1,8 @@
-package pl.kacperg.airlines.user.userDto;
+package pl.kacperg.airlines.user.user_dto;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Column;
 import javax.validation.constraints.*;
 
 @Data

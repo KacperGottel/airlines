@@ -13,7 +13,7 @@ import pl.kacperg.airlines.rss.RssFeedParser;
 public class RssController {
 
     @RequestMapping(value = "api/rss", method = RequestMethod.GET)
-    public String home(Model model) throws JsonProcessingException {
+    public String home() throws JsonProcessingException {
         RssFeedParser parser = new RssFeedParser("https://www.polsatnews.pl/rss/wszystkie.xml");
         Feed feed = parser.readFeed();
         ObjectMapper objectMapper = new ObjectMapper();
